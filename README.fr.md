@@ -119,6 +119,7 @@ Rien n'est conservé une fois l'application fermée.
 | SSTV | Images de télévision à balayage lent en FM, l'ISS sur 145,800 MHz ou toute fréquence : en-tête VIS, modes Robot, Martin, Scottie, PD (PD120 / PD180 comme l'ISS) et Wraase, Doppler suivi, inclinaison corrigée, images enregistrées en PNG |
 | Zigbee / 802.15.4 | Les réseaux Zigbee, Thread et 802.15.4 à 2,4 GHz, un canal ou les seize à tour de rôle : PAN ID, adresses et fabricants des puces, balises (ajout ouvert ou fermé), en-tête réseau Zigbee et clusters quand ils ne sont pas chiffrés |
 | ANT+ | Les capteurs sportifs sur 2457 MHz : fréquence cardiaque et intervalle R-R, puissance, cadence et vitesse vélo, capteurs de foulée, température, fabricant et batterie, avec les profils publics ANT+ |
+| Écoute | Écouter des stations : les 2 MHz autour d'une fréquence en spectre, on touche ou on glisse pour accorder, et le canal est joué en **WFM** (radio FM), **NFM** (talkies-walkies, marine), **AM** (aviation, ondes courtes) ou **USB / LSB**, avec volume, squelch et stations prédéfinies |
 | Meteor-M | Images LRPT des satellites météo sur 137,100 et 137,900 MHz, des anciens satellites comme des Meteor-M2-x qui émettent en QPSK décalé |
 | PMR446 | Les 16 canaux de talkies-walkies à la fois : activité, tonalité CTCSS, écoute des canaux analogiques et de la voix DMR446 / dPMR446 (décodage AMBE+2), identifiants des appels |
 | POCSAG | Messages de pagers (e*Message France et Allemagne, BOS, DAPNET ou n'importe quelle fréquence) : tous les canaux d'un réseau à la fois, 512, 1200 et 2400 bit/s, correction d'erreurs BCH |
@@ -202,6 +203,12 @@ Il faut un JDK récent et le SDK Android (API 37). Les scripts `scripts/` serven
 3. Lancer le workflow GitHub Actions « Release » : à la main (Actions → Release → Run workflow), en poussant un tag `v*`, ou par un push qui **modifie `.github/release-version`** (sur **n'importe quelle** branche, pas seulement `main` : ne touchez ce fichier que pour publier). Il construit l'APK signé et crée la release avec `AllRadioTools-v1.3.apk`. Un tag qui existe déjà reste sur son commit : supprimez-le avant de publier à nouveau.
 
 Le workflow a besoin des secrets `KEYSTORE_BASE64`, `KEYSTORE_PASSWORD`, `KEY_ALIAS` et `KEY_PASSWORD`.
+
+---
+
+## 🤝 Contribuer
+
+Les pull requests sont les bienvenues. [CONTRIBUTING.fr.md](CONTRIBUTING.fr.md) couvre l'organisation du code, le branchement d'un outil, les chaînes et traductions, les tests et les conventions de commit. En bref : gardez la logique dans `data/` et le Compose dans `ui/`, ajoutez un test pour tout changement de logique, et assurez-vous que `:app:assembleDebug` et `:app:testDebugUnitTest` passent — la CI lance les deux sur chaque PR.
 
 ---
 
